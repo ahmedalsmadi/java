@@ -1,32 +1,53 @@
 <!DOCTYPE html>
-<html>
-    <head>
-     <link rel="stylesheet" href="todostyle.css"/>
-    </head>
-    <body>
-        <section class="todo-input-section">
-            <h1 id="section-title">TodoInput</h1>
-            <div class="task-input-container">
-                <input type="text" placeholder="New Task">
-                 </div>
-                <button id="add-task-button">Add New Task</button>
-           
-        </section>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Todo Manager</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="todostyle.css" />
+</head>
 
-        <section class="todo-list-section">
-            <h1>To do List</h1>
-            <div class="fillter-buttons">
-                <button>All</button>
-                 <button>Done</button>
-                  <button>todo</button>
-            </div>
-            <div class="task-list-container">
+<body>
+  <div class="container">
+    <!-- Header -->
+    <header>
+      <h1>TodoInput</h1>
+      <div class="input-section">
+        <div class="input-container">
+          <span class="todo-icon">
+            <i class="fa-solid fa-book" style="color: #f3f4f7;"></i>
+          </span>
+          <input type="text" id="taskInput" placeholder="New Task" />
+        </div>
+        <button class="add-btn" id="addTaskButton">Add new task</button>
+      </div>
+    </header>
 
-            </div>
-            <div class="delete-button">
-                <button>Delete Done Tasks</button>
-                 <button>Delete All Tasks</button>
-            </div>
-        </section>
-    </body>
+    <!-- Main -->
+    <main>
+      <div class="filter-buttons">
+        <button class="filter-btn" id="all-btn">All</button>
+        <button class="filter-btn" id="done-btn">Done</button>
+        <button class="filter-btn" id="todo-btn">Todo</button>
+      </div>
+      <ul id="todoList" style="list-style-type: none;">
+        <!-- Dynamic Todo Items will appear here -->
+      </ul>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bottom-buttons">
+      <div id="deleteDoneTasks">
+        <button class="bottom-delete-btn" id="deleteDoneBtn">Delete Done Tasks</button>
+      </div>
+      <div id="deleteAllTasks">
+        <button class="bottom-delete-btn" id="deleteAllBtn">Delete All Tasks</button>
+      </div>
+    </footer>
+  </div>
+
+  <script src="todoo.js"></script>
+</body>
 </html>
