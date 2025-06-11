@@ -295,6 +295,19 @@ input[type="checkbox"]:checked::after {
   justify-content: center; /* Center horizontally */
   align-items: center; /* Center vertically */
 }
+.modal-content {
+  background-color: white;
+  padding: 20px;
+  border-radius: 5px;
+  width: 300px;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Slight shadow for depth */
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+  font-size: 1.5em;
+}
 
 
 .modal-input {
