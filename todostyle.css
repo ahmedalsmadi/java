@@ -67,3 +67,33 @@ body {
     cursor: pointer;
     font-size: 16px;
   }
+   
+  
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  h1,
+  h2 {
+    text-align: center;
+    color: #333;
+    margin: 20px 0;
+  }
+  
+  .todo-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    background: white;
+    border: 1px solid #ddd;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    position: relative;
+    border: 1px solid #882020;
+  }
+  
