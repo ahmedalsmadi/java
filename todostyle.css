@@ -156,4 +156,50 @@ body {
     cursor: pointer;
     font-size: 16px;
   }
+  #editTaskInput {
+  width: 90%;
+  padding: 10px 14px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  outline: none;
+  
+}
+
+#editTaskInput:focus {
+  border-color: #007bff;
+}
+
+.editBtns {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
+
+.editBtns button {
+  padding: 10px 16px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#editConfirmSave {
+  background-color: #0681a0;
+  color: white;
+}
+
+#editConfirmSave:hover {
+  background-color: #056d75;
+}
+
+#editConfirmCancel {
+  background-color: #dc3545;
+  color: white;
+}
+
+#editConfirmCancel:hover {
+  background-color: #c82333;
+}
   
