@@ -202,4 +202,107 @@ body {
 #editConfirmCancel:hover {
   background-color: #c82333;
 }
+.task .cartDeletBtn,
+.task .cartEditBtn {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+ 
+}
+
+.task .cartDeletBtn svg {
+  fill: red;
+  width: 15px;
+  height: 15px;
+}
+
+.task .cartEditBtn svg {
+  fill: orange;
+  width: 15px;
+  height: 15px;
+}
+.containerDeleteConfirm{
+   
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column  ;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  gap: 10px;
+}
+
+.rowDeleteConfirm{
+  background-color: #fff;
+  padding: 20px 30px;
+  border-radius: 10px;
+  text-align: center;
+  max-width: 300px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+.deleteConfirmBtn{
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-around;
+}
+.deleteConfirmBtn button{
+
+padding: 8px 16px;
+cursor: pointer;
+border: none;
+border-radius: 5px;
+font-weight: bold;
+}
+#deleteConfirmYes{
+  background-color: red;
+  color: white;
+}
+#deleteConfirmNo {
+  background-color: #ccc;
+}
+.no-tasks {
+  text-align: center;
+  color: #000000;
+  font-size: 1.2rem;
+  padding: 20px;
+}
+
+.containerEdit {
+  
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(15, 15, 15, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.rowEdit {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  width: 90%;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rowEdit h2 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  color: #333;
+}
+
   
