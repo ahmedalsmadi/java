@@ -71,3 +71,8 @@ function toggleDone(checkbox) {
             localStorage.setItem("tasks", JSON.stringify(tasks));
         }
     }
+    function saveTaskToLocalStorage(taskObj) {
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        tasks.push(taskObj);
+        localStorage.setItem("tasks", JSON.stringify(tasks));
+    }
