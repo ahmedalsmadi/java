@@ -56,3 +56,8 @@ function renderTask(task) {
     `;
     document.getElementById("taskList").appendChild(taskDiv);
 }
+
+function toggleDone(checkbox) {
+    const taskDiv = checkbox.closest(".task");
+    const span = taskDiv.querySelector("span");
+    const taskText = span.textContent;
