@@ -34,3 +34,10 @@ function renderTask(task) {
     const isChecked = task.done ? "checked" : "";
     const lineThrough = task.done ? "text-decoration: line-through;" : "";
     const color = task.done ? "color: red;" : "color: black;";
+    taskDiv.innerHTML = `
+    <div class="cart">
+        <div class="CartText">
+             <span style="${lineThrough} ${color}">${task.text}</span>
+        </div>
+        <div class="cartBtn">
+        <input type="checkbox" class="taskCheckbox" onchange="toggleDone(this)" ${isChecked}>
