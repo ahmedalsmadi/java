@@ -89,4 +89,9 @@ function toggleDone(checkbox) {
         }
     }
     let taskToDeleteElement = null;
-    let taskToDeleteText = "";    
+    let taskToDeleteText = "";
+    function deleteTask(btn) {
+        taskToDeleteElement = btn.closest(".task");
+        taskToDeleteText = taskToDeleteElement.querySelector("span").textContent;
+        document.getElementById("deleteConfirm").style.display = "flex";
+    }    
