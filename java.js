@@ -61,3 +61,13 @@ function toggleDone(checkbox) {
     const taskDiv = checkbox.closest(".task");
     const span = taskDiv.querySelector("span");
     const taskText = span.textContent;
+    span.style.textDecoration = checkbox.checked ? "line-through" : "none";
+    span.style.color = checkbox.checked ? "red" : "black";
+    
+        let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+        const index = tasks.findIndex(t => t.text === taskText);
+        if (index !== -1) {
+            tasks[index].done = checkbox.checked;
+            localStorage.setItem("tasks", JSON.stringify(tasks));
+        }
+    }
