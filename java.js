@@ -76,3 +76,16 @@ function toggleDone(checkbox) {
         tasks.push(taskObj);
         localStorage.setItem("tasks", JSON.stringify(tasks));
     }
+    function checkIfNoTasks() {
+        const taskList = document.getElementById("taskList");
+        const noTasksMsg = document.getElementById("noTasksMsg");
+        const taskCount = taskList.querySelectorAll(".task").length;
+    
+        if (taskCount === 0) {
+            noTasksMsg.style.display = "block";
+            noTasksMsg.style.textAlign = "center";
+        } else {
+            noTasksMsg.style.display = "none";
+        }
+    }
+    
