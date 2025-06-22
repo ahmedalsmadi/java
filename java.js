@@ -54,3 +54,5 @@ function renderTask(task) {
         </div>
     </div>
     `;
+    document.getElementById("taskList").appendChild(taskDiv);
+}
