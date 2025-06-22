@@ -18,3 +18,9 @@ function addtask() {
     }
     errorMsg.textContent = "";
     errorMsg.style.display = "none";
+    const taskObj = { text: taskText, done: false };
+    renderTask(taskObj);
+    saveTaskToLocalStorage(taskObj);
+    taskInput.value = ""; 
+    checkIfNoTasks(); 
+}
