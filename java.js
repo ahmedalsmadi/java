@@ -16,3 +16,5 @@ function addtask() {
     } else if (!isNaN(taskText.charAt(0))) {
         errorMessage = "Task cannot start with a number";
     }
+    errorMsg.textContent = "";
+    errorMsg.style.display = "none";
