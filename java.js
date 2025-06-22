@@ -24,3 +24,13 @@ function addtask() {
     taskInput.value = ""; 
     checkIfNoTasks(); 
 }
+
+function renderTask(task) {
+    if (!task || !task.text) return;
+
+    const taskDiv = document.createElement("div");
+    taskDiv.className = "task";
+
+    const isChecked = task.done ? "checked" : "";
+    const lineThrough = task.done ? "text-decoration: line-through;" : "";
+    const color = task.done ? "color: red;" : "color: black;";
