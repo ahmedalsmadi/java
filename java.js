@@ -88,4 +88,5 @@ function toggleDone(checkbox) {
             noTasksMsg.style.display = "none";
         }
     }
-    
+    let taskToDeleteElement = null;
+    let taskToDeleteText = "";    
