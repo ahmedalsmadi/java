@@ -118,7 +118,15 @@ function editTask(btn) {
 
 document.getElementById("editConfirmSave").onclick = function () {
     const newText = document.getElementById("editTaskInput").value.trim();
-    
+
     taskToEditElement.querySelector("span").textContent = newText;
     
 };
+
+function loadTasksFromLocalStorage() {
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks.forEach(task => {
+        renderTask(task);
+    });
+    checkIfNoTasks(); 
+}
