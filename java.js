@@ -100,4 +100,8 @@ function toggleDone(checkbox) {
 document.getElementById("deleteConfirmYes").onclick = function () {
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     tasks = tasks.filter(t => t.text !== taskToDeleteText);
-    localStorage.setItem("tasks", JSON.stringify(tasks)); }
+    localStorage.setItem("tasks", JSON.stringify(tasks)); 
+ if (taskToDeleteElement) {
+        taskToDeleteElement.remove();
+    }
+}
