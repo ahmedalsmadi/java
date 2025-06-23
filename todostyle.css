@@ -537,5 +537,14 @@ font-weight: bold;
     justify-content: center;
     gap: 10px; /* Add spacing between buttons */
   }
-
+#deleteDoneTasks {
+    width: 100%;
+    background: #dc3545;
+}
+#deleteAllTasks {
+    width: 100%;
+    display: flex;
+    background: #dc3545;
+    justify-self: end;
+}
   
