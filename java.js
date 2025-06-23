@@ -108,3 +108,6 @@ document.getElementById("deleteConfirmYes").onclick = function () {
      document.getElementById("deleteConfirm").style.display = "none";
     checkIfNoTasks(); 
 };
+function editTask(btn) {
+    taskToEditElement = btn.closest(".task");
+    taskToEditText = taskToEditElement.querySelector("span").textContent;}
