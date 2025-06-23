@@ -147,3 +147,19 @@ document.getElementById("deleteDoneBtn").onclick = function () {
     document.querySelectorAll(".taskCheckbox:checked").forEach(cb => cb.closest(".task").remove());
     checkIfNoTasks(); 
 };
+
+document.getElementById("all-btn").addEventListener("click", () => filterTasks("all"));
+document.getElementById("done-btn").addEventListener("click", () => filterTasks("done"));
+document.getElementById("todo-btn").addEventListener("click", () => filterTasks("todo"));
+
+function filterTasks(filterType) {
+    const tasks = taskList.querySelectorAll('.task');
+    tasks.forEach(taskEl => {
+        const checkbox = taskEl.querySelector('input[type="checkbox"]');
+        taskEl.style.display =
+            filterType === "all" ? "" :
+            filterType === "done" && checkbox.checked ? "" :
+            filterType === "todo" && !checkbox.checked ? "" :
+            "none";
+    });
+}
