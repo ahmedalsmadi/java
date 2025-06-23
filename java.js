@@ -140,3 +140,10 @@ document.getElementById("deleteAllBtn").onclick = function () {
     document.querySelectorAll(".task").forEach(task => task.remove());
     checkIfNoTasks(); 
 };
+document.getElementById("deleteDoneBtn").onclick = function () {
+    let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
+    tasks = tasks.filter(task => !task.done);
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+    document.querySelectorAll(".taskCheckbox:checked").forEach(cb => cb.closest(".task").remove());
+    checkIfNoTasks(); 
+};
