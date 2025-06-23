@@ -94,4 +94,6 @@ function toggleDone(checkbox) {
         taskToDeleteElement = btn.closest(".task");
         taskToDeleteText = taskToDeleteElement.querySelector("span").textContent;
         document.getElementById("deleteConfirm").style.display = "flex";
+
     }    
+
