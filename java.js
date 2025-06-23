@@ -130,3 +130,7 @@ function loadTasksFromLocalStorage() {
     });
     checkIfNoTasks(); 
 }
+
+window.onload = function () {
+    loadTasksFromLocalStorage();
+};
