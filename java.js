@@ -1,11 +1,11 @@
-document.getElementById("addTaskButton").onclick = addtask;
-document.getElementById("taskInput").addEventListener("keydown", function (e) {
+document.getElementById("addTaskButton").onclick = () => addtask();
+document.getElementById("taskInput").addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         addtask();
     }
 });
 
-function addtask() {
+const addtask = () => {
     const taskInput = document.querySelector("#taskInput");
     const taskText = taskInput.value.trim();
     const errorMsg = document.getElementById("errorMsg");
@@ -23,19 +23,17 @@ function addtask() {
         return;
     }
 
-    
-
     errorMsg.textContent = "";
     errorMsg.style.display = "none";
 
     const taskObj = { text: taskText, done: false };
     renderTask(taskObj);
     saveTaskToLocalStorage(taskObj);
-    taskInput.value = ""; 
-    checkIfNoTasks(); 
-}
+    taskInput.value = "";
+    checkIfNoTasks();
+};
 
-function renderTask(task) {
+const renderTask = (task) => {
     if (!task || !task.text) return;
 
     const taskDiv = document.createElement("div");
@@ -44,7 +42,6 @@ function renderTask(task) {
     const isChecked = task.done ? "checked" : "";
     const lineThrough = task.done ? "text-decoration: line-through;" : "";
     const color = task.done ? "color: red;" : "color: black;";
-
 
     taskDiv.innerHTML = `
     <div class="cart">
@@ -68,15 +65,15 @@ function renderTask(task) {
     `;
 
     document.getElementById("taskList").appendChild(taskDiv);
-}
+};
 
-function toggleDone(checkbox) {
+const toggleDone = (checkbox) => {
     const taskDiv = checkbox.closest(".task");
     const span = taskDiv.querySelector("span");
     const taskText = span.textContent;
 
     span.style.textDecoration = checkbox.checked ? "line-through" : "none";
-span.style.color = checkbox.checked ? "red" : "black";
+    span.style.color = checkbox.checked ? "red" : "black";
 
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     const index = tasks.findIndex(t => t.text === taskText);
@@ -84,15 +81,15 @@ span.style.color = checkbox.checked ? "red" : "black";
         tasks[index].done = checkbox.checked;
         localStorage.setItem("tasks", JSON.stringify(tasks));
     }
-}
+};
 
-function saveTaskToLocalStorage(taskObj) {
+const saveTaskToLocalStorage = (taskObj) => {
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     tasks.push(taskObj);
     localStorage.setItem("tasks", JSON.stringify(tasks));
-}
+};
 
-function checkIfNoTasks() {
+const checkIfNoTasks = () => {
     const taskList = document.getElementById("taskList");
     const noTasksMsg = document.getElementById("noTasksMsg");
     const taskCount = taskList.querySelectorAll(".task").length;
@@ -103,18 +100,18 @@ function checkIfNoTasks() {
     } else {
         noTasksMsg.style.display = "none";
     }
-}
+};
 
 let taskToDeleteElement = null;
 let taskToDeleteText = "";
 
-function deleteTask(btn) {
+const deleteTask = (btn) => {
     taskToDeleteElement = btn.closest(".task");
     taskToDeleteText = taskToDeleteElement.querySelector("span").textContent;
     document.getElementById("deleteConfirm").style.display = "flex";
-}
+};
 
-document.getElementById("deleteConfirmYes").onclick = function () {
+document.getElementById("deleteConfirmYes").onclick = () => {
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
     tasks = tasks.filter(t => t.text !== taskToDeleteText);
     localStorage.setItem("tasks", JSON.stringify(tasks));
@@ -124,17 +121,17 @@ document.getElementById("deleteConfirmYes").onclick = function () {
     }
 
     document.getElementById("deleteConfirm").style.display = "none";
-    checkIfNoTasks(); 
+    checkIfNoTasks();
 };
 
-document.getElementById("deleteConfirmNo").onclick = function () {
+document.getElementById("deleteConfirmNo").onclick = () => {
     document.getElementById("deleteConfirm").style.display = "none";
 };
 
 let taskToEditElement = null;
 let taskToEditText = "";
 
-function editTask(btn) {
+const editTask = (btn) => {
     taskToEditElement = btn.closest(".task");
     taskToEditText = taskToEditElement.querySelector("span").textContent;
 
@@ -146,11 +143,9 @@ function editTask(btn) {
     editError.textContent = "";
 
     document.getElementById("editTask").style.display = "flex";
-}
+};
 
-
-
-document.getElementById("editConfirmSave").onclick = function () {
+document.getElementById("editConfirmSave").onclick = () => {
     const newText = document.getElementById("editTaskInput").value.trim();
     const editError = document.getElementById("editErrorMsg");
 
@@ -178,11 +173,10 @@ document.getElementById("editConfirmSave").onclick = function () {
 
     editError.style.display = "none";
     editError.textContent = "";
-
     document.getElementById("editTask").style.display = "none";
 };
 
-document.getElementById("editConfirmCancel").onclick = function () {
+document.getElementById("editConfirmCancel").onclick = () => {
     const editError = document.getElementById("editErrorMsg");
     editError.style.display = "none";
     editError.textContent = "";
@@ -190,34 +184,32 @@ document.getElementById("editConfirmCancel").onclick = function () {
     document.getElementById("editTask").style.display = "none";
 };
 
-function loadTasksFromLocalStorage() {
+const loadTasksFromLocalStorage = () => {
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
-    tasks.forEach(task => {
-        renderTask(task);
-    });
-    checkIfNoTasks(); 
-}
+    tasks.forEach(task => renderTask(task));
+    checkIfNoTasks();
+};
 
-window.onload = function () {
+window.onload = () => {
     loadTasksFromLocalStorage();
 };
-document.getElementById("deleteAllBtn").onclick = function () {
-    localStorage.removeItem("tasks"); 
+
+document.getElementById("deleteAllBtn").onclick = () => {
+    localStorage.removeItem("tasks");
 
     const taskList = document.getElementById("taskList");
     const tasks = taskList.querySelectorAll(".task");
     tasks.forEach(task => task.remove());
 
-    checkIfNoTasks(); 
+    checkIfNoTasks();
 };
-document.getElementById("deleteDoneBtn").onclick = function () {
+
+document.getElementById("deleteDoneBtn").onclick = () => {
     let tasks = JSON.parse(localStorage.getItem("tasks")) || [];
 
-  
     tasks = tasks.filter(task => !task.done);
     localStorage.setItem("tasks", JSON.stringify(tasks));
 
-    
     const taskElements = document.querySelectorAll(".task");
     taskElements.forEach(taskEl => {
         const checkbox = taskEl.querySelector("input[type='checkbox']");
@@ -226,8 +218,9 @@ document.getElementById("deleteDoneBtn").onclick = function () {
         }
     });
 
-    checkIfNoTasks(); 
+    checkIfNoTasks();
 };
+
 document.getElementById("all-btn").addEventListener("click", () => {
     filterTasks("all");
 });
@@ -240,16 +233,16 @@ document.getElementById("todo-btn").addEventListener("click", () => {
     filterTasks("todo");
 });
 
-function filterTasks(filterType) {
+const filterTasks = (filterType) => {
     const tasks = taskList.querySelectorAll('.task');
     tasks.forEach(taskEl => {
-      const checkbox = taskEl.querySelector('input[type="checkbox"]');
-      if (filterType === "all") {
-        taskEl.style.display = "";
-      } else if (filterType === "done") {
-        taskEl.style.display = checkbox.checked ? "" : "none";
-      } else if (filterType === "todo") {
-        taskEl.style.display = !checkbox.checked ? "" : "none";
-      }
-    });
-  }
+        const checkbox = taskEl.querySelector('input[type="checkbox"]');
+        if (filterType === "all") {
+            taskEl.style.display = "";
+        } else if (filterType === "done") {
+            taskEl.style.display = checkbox.checked ? "" : "none";
+        } else if (filterType === "todo") {
+            taskEl.style.display = !checkbox.checked ? "" : "none";
+        }
+    });
+};
