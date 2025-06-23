@@ -134,3 +134,9 @@ function loadTasksFromLocalStorage() {
 window.onload = function () {
     loadTasksFromLocalStorage();
 };
+
+document.getElementById("deleteAllBtn").onclick = function () {
+    localStorage.removeItem("tasks"); 
+    document.querySelectorAll(".task").forEach(task => task.remove());
+    checkIfNoTasks(); 
+};
