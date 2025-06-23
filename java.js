@@ -94,9 +94,6 @@ function toggleDone(checkbox) {
         taskToDeleteElement = btn.closest(".task");
         taskToDeleteText = taskToDeleteElement.querySelector("span").textContent;
         document.getElementById("deleteConfirm").style.display = "flex";
-    }   
-    function checkIfNoTasks() {
-    const taskList = document.getElementById("taskList");
-    const noTasksMsg = document.getElementById("noTasksMsg");
-    const taskCount = taskList.querySelectorAll(".task").length;
-    } 
+
+    }    
+
