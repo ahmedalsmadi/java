@@ -115,3 +115,8 @@ function editTask(btn) {
      document.getElementById("editTaskInput").value = taskToEditText;
     document.getElementById("editTask").style.display = "flex";
 }
+
+document.getElementById("editConfirmSave").onclick = function () {
+    const newText = document.getElementById("editTaskInput").value.trim();
+    
+}
