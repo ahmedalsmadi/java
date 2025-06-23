@@ -110,4 +110,13 @@ document.getElementById("deleteConfirmYes").onclick = function () {
 };
 function editTask(btn) {
     taskToEditElement = btn.closest(".task");
-    taskToEditText = taskToEditElement.querySelector("span").textContent;}
+    taskToEditText = taskToEditElement.querySelector("span").textContent;
+
+     document.getElementById("editTaskInput").value = taskToEditText;
+    document.getElementById("editTask").style.display = "flex";
+}
+
+document.getElementById("editConfirmSave").onclick = function () {
+    const newText = document.getElementById("editTaskInput").value.trim();
+    
+}
